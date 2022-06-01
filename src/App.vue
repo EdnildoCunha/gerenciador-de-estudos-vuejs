@@ -6,7 +6,7 @@
     <div class="column is-four-fifth">
       <Formulario @aoSalvarTarefa="salvarTarefa" />
       <div class="lista">
-        <Tarefa v-for="(tarefa, index) in tarefas" :key="index" />
+        <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" />
 
       </div>
     </div>
