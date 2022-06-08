@@ -1,6 +1,5 @@
 <template>
-    <section class="projetos">
-        <h1 class="title">Projetos</h1>
+    <section>
         <form @submit.prevent="salvar">
             <div class="field">
                 <label for="nomeDoProjeto" class="label">Nome do Projeto</label>
@@ -16,7 +15,10 @@
 </template>
 
 <script lang="ts">
+import useNotificador from '@/hooks/notificador';
+import { TipoNotificacao } from '@/interfaces/INotificacao';
 import { useStore } from '@/store';
+import { ADICIONA_PROJETO, ALTERA_PROJETO } from '@/store/tipo-mutacoes';
 import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'FormularioNome',
@@ -41,29 +43,27 @@ export default defineComponent({
         salvar() {
             if (this.id) {
                 //edição
-                this.store.commit('ALTERA_PROJETO', {
+                this.store.commit(ALTERA_PROJETO, {
                     id: this.id,
                     nome: this.nomeDoProjeto
                 })
             } else {
                 //cadastra
-                this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto);
+                this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto);
             }
             this.nomeDoProjeto = '';
+            this.notificar(TipoNotificacao.SUCESSO, 'Sucesso', 'Projeto cadastrado com sucesso!')
             this.$router.push('/projetos');
         },
+
     },
     setup() {
         const store = useStore()
+        const { notificar } = useNotificador()
         return {
-            store
+            store,
+            notificar
         }
     }
 });
 </script>
-
-<style scoped>
-.projetos {
-    padding: 1.25rem;
-}
-</style>
