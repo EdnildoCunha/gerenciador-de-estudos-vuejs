@@ -2,7 +2,11 @@
   "projetos": [
     {
       "id": 1,
-      "nome": "Alura Tracker 3"
+      "nome": "Alura Tracker 3.0"
+    },
+    {
+      "id": 2,
+      "nome": "teste 3.0"
     }
   ],
   "tarefas": [
@@ -23,6 +27,34 @@
         "nome": "Alura Tracker 3"
       },
       "id": 2
+    },
+    {
+      "duracaoSegundos": 3,
+      "descricao": "adfaf",
+      "id": 3
+    },
+    {
+      "duracaoSegundos": 3,
+      "descricao": "sdafdfa",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker 3.0"
+      },
+      "id": 4
+    },
+    {
+      "duracaoSegundos": 5,
+      "descricao": "teste",
+      "id": 5
+    },
+    {
+      "duracaoSegundos": 4,
+      "descricao": "testando",
+      "projeto": {
+        "id": 2,
+        "nome": "teste 3.0"
+      },
+      "id": 6
     }
   ]
 }
